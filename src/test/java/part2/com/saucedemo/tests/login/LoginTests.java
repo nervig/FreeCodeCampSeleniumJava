@@ -6,7 +6,7 @@ import part2.com.saucedemo.base.BaseTest;
 
 public class LoginTests extends BaseTest {
 
-  @Test
+  @Test(groups = {"SmokeTests"})
   public void testLoginErrorMessage() {
     loginPage.setUsername("standard_user");
     loginPage.setPassword("xyz3400");
