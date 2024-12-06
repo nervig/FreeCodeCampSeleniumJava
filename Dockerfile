@@ -4,16 +4,17 @@ FROM openjdk:17-jdk-slim
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Устанавливаем Git и Maven
+# Устанавливаем необходимые утилиты: Git и Maven
 RUN apt-get update && \
     apt-get install -y git maven && \
     rm -rf /var/lib/apt/lists/*
 
 # Клонируем репозиторий
-RUN git clone https://github.com/nervig/FreeCodeCampSeleniumJava.git .
+ARG REPO_URL=https://github.com/nervig/FreeCodeCampSeleniumJava.git
+RUN git clone $REPO_URL .
 
 # Скачиваем зависимости и собираем проект
 RUN mvn clean install
 
-# Запускаем тесты по умолчанию
-CMD ["mvn", "test"]
+# Определяем рабочую точку входа
+ENTRYPOINT ["mvn"]
