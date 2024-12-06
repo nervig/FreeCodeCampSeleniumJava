@@ -7,7 +7,7 @@ import part2.com.saucedemo.base.BaseTest;
 
 public class ProductsTest extends BaseTest {
 
-  @Test
+  @Test(groups = {"SmokeTests"})
   public void testProductsHeaderIsDisplayed() {
     ProductsPage productsPage = loginPage.
             logIntoApplication("standard_user", "secret_sauce");
