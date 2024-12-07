@@ -17,4 +17,4 @@ RUN git clone $REPO_URL .
 RUN mvn clean install -DskipTests
 
 # Определяем рабочую точку входа
-ENTRYPOINT ["mvn"]
+ENTRYPOINT ["mvn", "clean", "install"]
