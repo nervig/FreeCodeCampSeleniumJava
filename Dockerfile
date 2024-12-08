@@ -13,8 +13,8 @@ RUN apt-get update && \
 ARG REPO_URL=https://github.com/nervig/FreeCodeCampSeleniumJava.git
 RUN git clone $REPO_URL .
 
-# Скачиваем зависимости и собираем проект без запуска тестов
+# Скачиваем зависимости и собираем проект без тестов
 RUN mvn clean install -DskipTests
 
-# Определяем рабочую точку входа
-ENTRYPOINT ["mvn", "clean", "install"]
+# Контейнер готов для использования Jenkins
+CMD ["tail", "-f", "/dev/null"]
