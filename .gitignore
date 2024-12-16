@@ -9,6 +9,8 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 .idea/inspectionProfiles
+.idea/dbnavigator.xml
+.idea/misc.xml
 *.iws
 *.iml
 *.ipr
